@@ -22,7 +22,7 @@
       <a class="site-nav-item btn" href="/getting-started/developers-guide/">快速开始</a>
       
       
-      <a class="site-nav-item btn" href="/docs/high-level-goals/">文档</a>
+      <a class="site-nav-item btn" href="/docs/js/">文档</a>
       <a class="site-nav-item btn" href="/community/feedback/">社区</a>
       <a class="site-nav-item btn" href="/roadmap/">路线图</a>
       <a class="site-nav-item btn" href="/docs/faq/">FAQ</a>
@@ -50,7 +50,7 @@
 <a href="../high-level-goals/">high-level goals</a> of WebAssembly but weren’t part of the
 initial <a href="../mvp/">Minimum Viable Product</a> release.</p>
 
-<p><strong>Note:</strong> we are in the process of migrating all post-MVP featues to tracking
+<p><strong>Note:</strong> we are in the process of migrating all post-MVP features to tracking
 issues.</p>
 
 <h2 id="tracking-issues">Tracking Issues</h2>
@@ -88,6 +88,11 @@ issues.</p>
       <td>Garbage collection</td>
       <td><a href="https://github.com/WebAssembly/design/issues/1079">1079</a></td>
       <td>in progress</td>
+    </tr>
+    <tr>
+      <td>ECMAScript module integration</td>
+      <td><a href="https://github.com/WebAssembly/design/issues/1087">1087</a></td>
+      <td>no started</td>
     </tr>
   </tbody>
 </table>
@@ -445,7 +450,10 @@ all values, including 0)</li>
 </ul>
 
 <p><code class="highlighter-rouge">minnum</code> and <code class="highlighter-rouge">maxnum</code> operators would treat <code class="highlighter-rouge">-0.0</code> as being effectively less
-than <code class="highlighter-rouge">0.0</code>.</p>
+than <code class="highlighter-rouge">0.0</code>. Also, it’s advisable to follow the IEEE 754-2018 draft, which has
+removed IEEE 754-2008’s <code class="highlighter-rouge">minNum</code> and <code class="highlighter-rouge">maxNum</code> (which return qNaN when either
+operand is sNaN) and replaced them with <code class="highlighter-rouge">minimumNumber</code> and <code class="highlighter-rouge">maximumNumber</code>,
+which prefer to return a number even when one operand is sNaN.</p>
 
 <p>Note that some operators, like <code class="highlighter-rouge">fma</code>, may not be available or may not perform
 well on all platforms. These should be guarded by
@@ -653,15 +661,11 @@ size is known to be large, and will use loads/stores otherwise.</p>
         <nav class="side-nav">
         
         
-        <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
-        
         <a class="side-nav-item" href="/docs/js/">JavaScript API</a>
         
         <a class="side-nav-item" href="/docs/binary-encoding/">Binary Encoding</a>
         
         <a class="side-nav-item" href="/docs/text-format/">Text Format</a>
-        
-        <a class="side-nav-item" href="/docs/semantics/">Semantics</a>
         
         <a class="side-nav-item" href="/docs/modules/">Modules</a>
         
@@ -694,6 +698,10 @@ size is known to be large, and will use loads/stores otherwise.</p>
         <a class="side-nav-item" href="/docs/jit-library/">JIT and Optimization Library</a>
         
         <a class="side-nav-item" href="/docs/dynamic-linking/">Dynamic linking</a>
+        
+        <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly 的长久目标</a>
+        
+        <a class="side-nav-item" href="/docs/semantics/">语义</a>
         
         <a class="side-nav-item" href="/docs/use-cases/">使用场景</a>
         

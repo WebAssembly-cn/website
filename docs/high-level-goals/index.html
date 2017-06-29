@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>WebAssembly High-Level Goals - WebAssembly 中文网</title>
+  <title>WebAssembly 的长久目标 - WebAssembly 中文网</title>
   <link rel="stylesheet" type="text/css" href="/css/custom.css">
   <meta name="keywords" content="wsam,WebAssembly中国,wsam中文">
   <meta mame="description" content="WebAssembly 中文网是一个依附于WebAssembly官网内容的开源中文社区">
@@ -22,7 +22,7 @@
       <a class="site-nav-item btn" href="/getting-started/developers-guide/">快速开始</a>
       
       
-      <a class="site-nav-item btn" href="/docs/high-level-goals/">文档</a>
+      <a class="site-nav-item btn" href="/docs/js/">文档</a>
       <a class="site-nav-item btn" href="/community/feedback/">社区</a>
       <a class="site-nav-item btn" href="/roadmap/">路线图</a>
       <a class="site-nav-item btn" href="/docs/faq/">FAQ</a>
@@ -44,49 +44,33 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-9 col-pop">
-        <h1 id="webassembly-high-level-goals">WebAssembly High-Level Goals</h1>
+        <h1 id="webassembly-的长久目标">WebAssembly 的长久目标</h1>
 
 <ol>
-  <li>Define a <a href="../portability/">portable</a>, size- and load-time-efficient
-<a href="../mvp/#binary-format">binary format</a> to serve as a compilation target which
-can be compiled to execute at native speed by taking advantage of common
-hardware capabilities available on a wide range of platforms, including
-<a href="https://en.wikipedia.org/wiki/Mobile_device">mobile</a> and
-<a href="https://en.wikipedia.org/wiki/Internet_of_Things">IoT</a>.</li>
-  <li>Specify and implement incrementally:
+  <li>定义一个<a href="../portability/">可移植</a>、体积小、加载快的<a href="../mvp/#binary-format">二进制格式</a>作为编译结果。通过充分发挥通用硬件的能力（包括<a href="https://en.wikipedia.org/wiki/Mobile_device">移动设备</a>以及<a href="https://en.wikipedia.org/wiki/Internet_of_Things">物联网</a>），使其在大多数平台上能达到原生的执行效率。</li>
+  <li>逐步制定与完善：
     <ul>
-      <li>a <a href="../mvp/">Minimum Viable Product (MVP)</a> for the standard with
-roughly the same functionality as <a href="http://asmjs.org">asm.js</a>, primarily
-aimed at <a href="../c-and-c++/">C/C++</a>;</li>
+      <li>主要针对 <a href="../c-and-c++/">C/C++</a>，提供一个和 <a href="http://asmjs.org">asm.js</a> 有大致相同功能的该标准<a href="../mvp/">最小可行性产品(MVP)</a>；</li>
       <li>
-<a href="../future-features/">additional features <img class="emoji" title=":unicorn:" alt=":unicorn:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f984.png" height="20" width="20" align="absmiddle"></a>,
-initially focused on key features like threads,
-zero cost exceptions, and SIMD,
-follow by additional features
-prioritized by feedback and experience, including support for languages
-other than C/C++.</li>
+<a href="../future-features/">其他特性 <img class="emoji" title=":unicorn:" alt=":unicorn:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f984.png" height="20" width="20" align="absmiddle"></a>，首先关注在线程、零成本异常处理和单指令流多数据流等关键功能特性上，然后优先考虑通过反馈和经验总结的其他特性，比如对非 C／C++ 编程语言的支持。</li>
     </ul>
   </li>
-  <li>Design to execute within and integrate well with the <em>existing</em>
-<a href="../web/">Web platform</a>:
+  <li>被设计为可以与现有的 <a href="../web/">Web 平台</a>完美结合并在其中运行：
     <ul>
-      <li>maintain the versionless, <a href="../feature-test/">feature-tested</a> and backwards-compatible evolution story of the Web;</li>
-      <li>execute in the same semantic universe as JavaScript;</li>
-      <li>allow synchronous calls to and from JavaScript;</li>
-      <li>enforce the same-origin and permissions security policies;</li>
-      <li>access browser functionality through the same Web APIs that are accessible
-to JavaScript; and</li>
-      <li>define a human-editable text format that is convertible to and from the
-binary format, supporting View Source functionality.</li>
+      <li>维护无版本、<a href="../feature-test/">特性可测试</a>、向后兼容的 Web 演变过程；</li>
+      <li>和 JavaScript 执行在相同的语意环境中；</li>
+      <li>允许和 JavaScript 相互的同步调用；</li>
+      <li>严格遵守同源策略以及浏览器安全策略；</li>
+      <li>和 JavaScript 一样，可以访问相同的 Web API 去调用浏览器的功能；以及</li>
+      <li>定义一个可与二进制格式相互转化的人类可编辑的文本格式，并且支持查看源码的功能。</li>
     </ul>
   </li>
-  <li>Design to support <a href="../non-web/">non-browser embeddings</a> as well.</li>
-  <li>Make a great platform:
+  <li>被设计为也可以支持<a href="../non-web/">非浏览器嵌入</a>的运行形式。</li>
+  <li>创造一个伟大的平台：
     <ul>
-      <li>build a new LLVM backend for WebAssembly and an accompanying
-clang port (<a href="../faq/#which-compilers-can-i-use-to-build-webassembly-programs">why LLVM first?</a>);</li>
-      <li>promote other compilers and tools targeting WebAssembly; and</li>
-      <li>enable other useful <a href="../tooling/">tooling</a>.</li>
+      <li>为 WebAssembly 构建一个新的 LLVM 后端环境和伴随的 Clang 端口（<a href="../faq/#which-compilers-can-i-use-to-build-webassembly-programs">为什么首选 LLVM?</a>）；</li>
+      <li>推广面向 WebAssembly 的其他编译器和工具；以及</li>
+      <li>启用其他有用的<a href="../tooling/">工具</a>。</li>
     </ul>
   </li>
 </ol>
@@ -98,15 +82,11 @@ clang port (<a href="../faq/#which-compilers-can-i-use-to-build-webassembly-prog
         <nav class="side-nav">
         
         
-        <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
-        
         <a class="side-nav-item" href="/docs/js/">JavaScript API</a>
         
         <a class="side-nav-item" href="/docs/binary-encoding/">Binary Encoding</a>
         
         <a class="side-nav-item" href="/docs/text-format/">Text Format</a>
-        
-        <a class="side-nav-item" href="/docs/semantics/">Semantics</a>
         
         <a class="side-nav-item" href="/docs/modules/">Modules</a>
         
@@ -139,6 +119,10 @@ clang port (<a href="../faq/#which-compilers-can-i-use-to-build-webassembly-prog
         <a class="side-nav-item" href="/docs/jit-library/">JIT and Optimization Library</a>
         
         <a class="side-nav-item" href="/docs/dynamic-linking/">Dynamic linking</a>
+        
+        <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly 的长久目标</a>
+        
+        <a class="side-nav-item" href="/docs/semantics/">语义</a>
         
         <a class="side-nav-item" href="/docs/use-cases/">使用场景</a>
         
