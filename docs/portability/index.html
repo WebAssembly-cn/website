@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Portability - WebAssembly 中文网|Wasm 中文文档</title>
+  <title>可移植性 - WebAssembly 中文网|Wasm 中文文档</title>
   <link rel="stylesheet" type="text/css" href="/css/custom.css">
   <meta name="keywords" content="WebAssembly中文网,wasm中文网,WebAssembly中文社区">
   <meta mame="description" content="WebAssembly 中文网是一个依附于WebAssembly官网内容的开源中文社区">
@@ -45,70 +45,40 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-9 col-pop">
-        <h1 id="portability">Portability</h1>
+        <h1 id="可移植性">可移植性</h1>
 
-<p>WebAssembly’s <a href="../binary-encoding/">binary format</a> is designed to be executable
-efficiently on a variety of operating systems and instruction set architectures,
-<a href="../web/">on the Web</a> and <a href="../non-web/">off the Web</a>.</p>
+<p>WebAssembly的<a href="../binary-encoding/">二进制格式</a>是被设计成可在不同操作系统与指令集上高效执行的，无论在<a href="../web/">Web</a>或<a href="../non-web/">非Web</a>环境中。</p>
 
-<h2 id="assumptions-for-efficient-execution">Assumptions for Efficient Execution</h2>
+<h2 id="对高效执行的设想">对高效执行的设想</h2>
 
-<p>Execution environments which, despite
-<a href="../nondeterminism/">limited, local, nondeterminism</a>, don’t offer
-the following characteristics may be able to execute WebAssembly modules
-nonetheless. In some cases they may have to emulate behavior that the host
-hardware or operating system don’t offer so that WebAssembly modules execute
-<em>as-if</em> the behavior were supported. This sometimes will lead to poor
-performance.</p>
+<p>尽管执行环境是<a href="../nondeterminism/">有条件的，本地的，不确定的</a>，也不要向WebAssembly提供下述特性。有些情况下为了WebAssembly模块执行，也许不得不模拟一些宿主硬件或操作系统不提供的特性，让它们似乎被支持。这种情况将会导致糟糕的性能。</p>
 
-<p>As WebAssembly’s standardization goes forward we expect to formalize these
-requirements, and how WebAssembly will adapt to new platforms that didn’t
-necessarily exist when WebAssembly was first designed.</p>
+<p>随着WebAssembly的标准化推进，我们期望将这些需求也能被固定下来。WebAssembly在设计之初就应该适配未来的平台。</p>
 
-<p>WebAssembly portability assumes that execution environments offer the following
-characteristics:</p>
+<p>WebAssembly可移植性假定执行环境提供下列特性：</p>
 
 <ul>
-  <li>8-bit bytes.</li>
-  <li>Addressable at a byte memory granularity.</li>
-  <li>Support unaligned memory accesses or reliable trapping that allows software
-emulation thereof.</li>
-  <li>Two’s complement signed integers in 32 bits and optionally 64 bits.</li>
-  <li>IEEE 754-2008 32-bit and 64-bit floating point, except for
-<a href="../semantics/#floating-point-operators">a few exceptions</a>.</li>
-  <li>Little-endian byte ordering.</li>
-  <li>Memory regions which can be efficiently addressed with 32-bit
-pointers or indices.</li>
-  <li>wasm64 additionally supports linear memory bigger than
-<a href="../future-features/#linear-memory-bigger-than-4-gib">4 GiB with 64-bit pointers or indices</a>.</li>
-  <li>Enforce secure isolation between WebAssembly modules and other modules or
-processes executing on the same machine.</li>
-  <li>An execution environment which offers forward progress guarantees to all
-threads of execution (even when executing in a non-parallel manner).</li>
-  <li>Availability of lock-free atomic memory operators, when naturally aligned, for
-8- 16- and 32-bit accesses. At a minimum this must include an atomic
-compare-and-exchange operator (or equivalent load-linked/store-conditional).</li>
-  <li>wasm64 additionally requires lock-free atomic memory operators, when naturally
-aligned, for 64-bit accesses.</li>
+  <li>8位字节。</li>
+  <li>内存可按字节维度寻址。</li>
+  <li>支持未对齐的内存访问或因软件仿真导致的已知缺陷。</li>
+  <li>32位有符号整数有两个补码，64位可选。</li>
+  <li>IEEE 754-2008 32位和64位浮点数，除了<a href="../semantics/#floating-point-operators">一些例外</a>。</li>
+  <li>小端字节序。</li>
+  <li>可使用32位指针或索引有效处理内存区域。</li>
+  <li>WebAssembly64 使用<a href="../future-features/#linear-memory-bigger-than-4-gib">64位指针或索引</a>额外支持大于4GB的线性内存。</li>
+  <li>执行在同一机器上的WebAssembly模块与其他模块或进程强制安全隔离</li>
+  <li>提供一个进程担保所有线程的执行的执行环境（即便它们以非并行方式执行）</li>
+  <li>访问8、16、32位自然对齐内存时，可用无锁原子运算符。至少也要包含一个原子级的比较和交换运算符（或同等的加载连接/条件存储）。</li>
+  <li>WebAssembly64 访问64位自然对齐内存时，额外需要无锁原子运算符。</li>
 </ul>
 
 <h2 id="api">API</h2>
 
-<p>WebAssembly does not specify any APIs or syscalls, only an 
-<a href="../modules/">import mechanism</a> where the set of available imports is defined
-by the host environment. In a <a href="../web/">Web</a> environment, functionality is
-accessed through the Web APIs defined by the
-<a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Web Platform</a>.
-<a href="../non-web/">Non-Web</a> environments can choose to implement standard Web APIs,
-standard non-Web APIs (e.g. POSIX), or invent their own.</p>
+<p>WebAssembly没有指定任何API或系统调用，只有一个<a href="../modules/">导入机制</a>，需宿主环境定义一组可导入对象。<a href="../web/">Web</a>环境中，方法通过由<a href="https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BEWeb">开放Web平台</a>制定的Web APIs访问。<a href="../non-web/">非Web</a>环境中可以执行一些基础的Web APIs，基础的非Web APIs（例如POSIX），或者自己发明一个。</p>
 
-<h2 id="source-level">Source-level</h2>
+<h2 id="源码级别">源码级别</h2>
 
-<p>Portability at the C/C++ level can be achieved by programming to
-a standard API (e.g., POSIX) and relying on the compiler and/or libraries to map
-the standard interface to the host environment’s available imports either at
-compile-time (via <code class="highlighter-rouge">#ifdef</code>) or run-time (via <a href="../feature-test/">feature detection</a>
-and dynamic <a href="../modules/">loading</a>/<a href="../dynamic-linking/">linking</a>).</p>
+<p>C/C++级别的可移植性可用过面向一个基础API（例如POSIX）编码达成，也可以依赖编译时（通过<code class="highlighter-rouge">#ifdef</code>）或运行时（通过 <a href="../feature-test/">功能发现</a>）和动态<a href="../modules/">加载</a>/<a href="../dynamic-linking/">链接</a>）编译器和/或库向宿主环境的可用导入们提供的基础接口达成。</p>
 
       </div>
       <div class="col-xs-12 col-lg-3">
@@ -132,8 +102,6 @@ and dynamic <a href="../modules/">loading</a>/<a href="../dynamic-linking/">link
         
         <a class="side-nav-item" href="/docs/future-features/">Features to add after the MVP</a>
         
-        <a class="side-nav-item" href="/docs/portability/">Portability</a>
-        
         <a class="side-nav-item" href="/docs/security/">Security</a>
         
         <a class="side-nav-item" href="/docs/nondeterminism/">Nondeterminism in WebAssembly</a>
@@ -141,8 +109,6 @@ and dynamic <a href="../modules/">loading</a>/<a href="../dynamic-linking/">link
         <a class="side-nav-item" href="/docs/c-and-c++/">Guide for C/C++ developers</a>
         
         <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
-        
-        <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
         
         <a class="side-nav-item" href="/docs/feature-test/">Feature Test</a>
         
@@ -155,6 +121,10 @@ and dynamic <a href="../modules/">loading</a>/<a href="../dynamic-linking/">link
         <a class="side-nav-item" href="/docs/dynamic-linking/">Dynamic linking</a>
         
         <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly 的长久目标</a>
+        
+        <a class="side-nav-item" href="/docs/non-web/">非网络嵌入</a>
+        
+        <a class="side-nav-item" href="/docs/portability/">可移植性</a>
         
         <a class="side-nav-item" href="/docs/semantics/">语义</a>
         

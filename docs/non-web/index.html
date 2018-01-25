@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Non-Web Embeddings - WebAssembly 中文网|Wasm 中文文档</title>
+  <title>非网络嵌入 - WebAssembly 中文网|Wasm 中文文档</title>
   <link rel="stylesheet" type="text/css" href="/css/custom.css">
   <meta name="keywords" content="WebAssembly中文网,wasm中文网,WebAssembly中文社区">
   <meta mame="description" content="WebAssembly 中文网是一个依附于WebAssembly官网内容的开源中文社区">
@@ -45,50 +45,21 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-9 col-pop">
-        <h1 id="non-web-embeddings">Non-Web Embeddings</h1>
+        <h1 id="非网络嵌入">非网络嵌入</h1>
 
-<p>While WebAssembly is designed to run <a href="../web/">on the Web</a>, it is
-also desirable for it to be able to execute well in other environments,
-including everything from minimal shells for testing to full-blown
-application environments e.g. on servers in datacenters, on IoT devices,
-or mobile/desktop apps. It may even be desirable to execute WebAssembly
-embedded within larger programs.</p>
+<p>尽管 WebAssembly 是为<a href="../web/">运行在 Web 上</a>设计的，它也可以在其它的环境中良好地运行。包括从用作测试的最小化 shell ，到完全的应用环境 —— 例如：在数据中心的服务器、物联网（IoT）设备或者是移动/桌面应用程序。甚至，运行嵌入在较大程序里的 WebAssembly 也是可行的。</p>
 
-<p>Non-Web environments may provide different APIs than Web
-environments, which
-<a href="../feature-test/">feature testing</a> and
-<a href="../dynamic-linking/">dynamic linking</a> will make discoverable and
-usable.</p>
+<p>非 Web 环境下，它可能有和 Web 环境下不同的应用编程接口（API）。<a href="../feature-test/">功能测试（feature testing）</a>和<a href="../dynamic-linking/">动态链接（dynamic linking）</a>会使其可自发现、易于使用。</p>
 
-<p>Non-Web environments may include JavaScript VMs (e.g. <a href="https://nodejs.org">node.js</a>), however
-WebAssembly is also being designed to be capable of being executed without a
-JavaScript VM present.</p>
+<p>非 Web 环境可能包括 JavaScript 虚拟机（例如 <a href="https://nodejs.org">node.js</a>）。但是，WebAssembly 也被设计为能够在没有 JavaScript 虚拟机的情况下运行。</p>
 
-<p>The WebAssembly spec itself will not try to define any large portable libc-like
-library. However, certain features that are core to WebAssembly semantics that
-are similar to functions found in native libc <em>would</em> be part of the core
-WebAssembly spec as primitive operators (e.g., the <code class="highlighter-rouge">grow_memory</code> operator, which
-is similar to the <code class="highlighter-rouge">sbrk</code> function on many systems, and in the future, operators
-similar to <code class="highlighter-rouge">dlopen</code>).</p>
+<p>WebAssembly 标准本身不会尝试定义任何大型可移植的类 libc 库。然而，作为 WebAssembly 语义核心、类似于原生 libc 库中的函数的某些功能，将以原始操作符（primitive operators）的身份，成为核心 WebAssembly 标准的一部分。（例如：和在许多系统中存在的 <code class="highlighter-rouge">sbrk</code> 函数类似的 <code class="highlighter-rouge">grow_memory</code> 操作符，以及未来类似于 <code class="highlighter-rouge">dlopen</code> 的诸操作符。）</p>
 
-<p>Where there is overlap between the Web and popular non-Web environments,
-shared specs could be proposed, but these would be separate from the WebAssembly
-spec. A symmetric example in JavaScript would be the in-progress 
-<a href="https://whatwg.github.io/loader">Loader</a> spec, which is proposed for both
-Web and node.js environments and is distinct from the JavaScript spec.</p>
+<p>对于在 Web 和流行的非 Web 环境之间存在重叠的地方，将会有共享的规范，但是它们会被从 WebAssembly 标准中分离出来。有一个和 JavaScript 中对应的例子 —— 仍在进行阶段（in-progress）的 <a href="https://whatwg.github.io/loader">Loader</a> 规范。它因为 Web 环境和 node.js 环境被提出，并且和 JavaScript 标准存在区别。</p>
 
-<p>However, for most cases it is expected that, to achieve portability at the
-source code level, communities would build libraries that mapped from a 
-source-level interface to the host environment’s builtin capabilities
-(either at build time or runtime).  WebAssembly would provide the raw building
-blocks (feature testing, <a href="../modules/#imports-and-exports">builtin modules</a> and
-dynamic loading) to make these libraries possible. Two early expected examples
-are POSIX and SDL.</p>
+<p>然而，为了实现在多数情况下可期的，源码级别的可移植性。社区将会构建从源码级别的接口，映射到主机环境内置功能的库（在运行时或者构建时）。WebAssembly 将会提供原始构建块来使这些库成为可能：它们包括功能测试（feature testing）、<a href="../modules/#imports-and-exports">内建模块（builtin modules）</a>以及动态加载（dynamic loading）。两个可以预料到的早期例子是 POSIX 和 SDL。</p>
 
-<p>In general, by keeping the non-Web path such that it doesn’t require
-Web APIs, WebAssembly could be used as a portable binary format on many
-platforms, bringing great benefits in portability, tooling and
-language-agnosticity (since it supports C/C++ level semantics).</p>
+<p>通常，通过维持不需要 Web API 的非 Web 路径，WebAssembly 能够在许多平台上用作便携式的二进制格式，为移植性、工具和语言无关性带来巨大的好处。（因为它支持 c\c++ 级语义）</p>
 
       </div>
       <div class="col-xs-12 col-lg-3">
@@ -112,8 +83,6 @@ language-agnosticity (since it supports C/C++ level semantics).</p>
         
         <a class="side-nav-item" href="/docs/future-features/">Features to add after the MVP</a>
         
-        <a class="side-nav-item" href="/docs/portability/">Portability</a>
-        
         <a class="side-nav-item" href="/docs/security/">Security</a>
         
         <a class="side-nav-item" href="/docs/nondeterminism/">Nondeterminism in WebAssembly</a>
@@ -121,8 +90,6 @@ language-agnosticity (since it supports C/C++ level semantics).</p>
         <a class="side-nav-item" href="/docs/c-and-c++/">Guide for C/C++ developers</a>
         
         <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
-        
-        <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
         
         <a class="side-nav-item" href="/docs/feature-test/">Feature Test</a>
         
@@ -135,6 +102,10 @@ language-agnosticity (since it supports C/C++ level semantics).</p>
         <a class="side-nav-item" href="/docs/dynamic-linking/">Dynamic linking</a>
         
         <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly 的长久目标</a>
+        
+        <a class="side-nav-item" href="/docs/non-web/">非网络嵌入</a>
+        
+        <a class="side-nav-item" href="/docs/portability/">可移植性</a>
         
         <a class="side-nav-item" href="/docs/semantics/">语义</a>
         
