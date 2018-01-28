@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Minimum Viable Product - WebAssembly 中文网|Wasm 中文文档</title>
+  <title>最小可行性版本 - WebAssembly 中文网|Wasm 中文文档</title>
   <link rel="stylesheet" type="text/css" href="/css/custom.css">
   <meta name="keywords" content="WebAssembly中文网,wasm中文网,WebAssembly中文社区">
   <meta mame="description" content="WebAssembly 中文网是一个依附于WebAssembly官网内容的开源中文社区">
@@ -45,34 +45,30 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-lg-9 col-pop">
-        <h1 id="minimum-viable-product">Minimum Viable Product</h1>
+        <h1 id="最小可行性版本">最小可行性版本</h1>
 
-<p>As stated in the <a href="../high-level-goals/">high-level goals</a>, the first release aims
-at being a Minimum Viable Product (MVP). This means that there are important
-features we <em>know</em> we want and need, but are post-MVP; these are in a separate
-essential <a href="../future-features/">post-MVP <img class="emoji" title=":unicorn:" alt=":unicorn:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f984.png" height="20" width="20" align="absmiddle"></a> features document. The MVP will contain
-features which are available today in modern web browsers and which perform well
-even on mobile devices, which leads to roughly the same functionality as
-<a href="http://asmjs.org">asm.js</a>.</p>
+<p>正如在<a href="../high-level-goals/">WebAssembly 的长久目标</a>中提到的, 我们第一个发布的目标是成为一个
+最小可行性版本(Minimum Viable Product, MVP)。这里面会包含一些特性是我们在<a href="../future-features/">后续发行版本<img class="emoji" title=":unicorn:" alt=":unicorn:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f984.png" height="20" width="20" align="absmiddle"></a>
+中会逐步增加的。 最小可行性版本所包含的特性使得在当前流行浏览器和移动设备上都有与<a href="http://asmjs.org">asm.js</a>大致相同的表现。</p>
 
-<p>The major design components of the MVP have been broken up into separate
-documents:</p>
-
+<p>最小可行性版本的主要设计组件包含如下独立的文档：</p>
 <ul>
-  <li>The distributable, loadable and executable unit of code in WebAssembly
-is called a <a href="../modules/">module</a>.</li>
-  <li>The behavior of WebAssembly code in a module is specified in terms of 
-<a href="../semantics/">instructions</a> for a structured stack machine.</li>
-  <li>The WebAssembly binary format, which is designed to be natively decoded by 
-WebAssembly implementations, is specified as a 
-<a href="../binary-encoding/">binary encoding</a> of a module’s structure and code.</li>
-  <li>The WebAssembly text format, which is designed to be read and written when
-using tools (e.g., assemblers, debuggers, profilers), is specified as a
-<a href="../text-format/">textual projection</a> of a module’s structure and code.</li>
-  <li>WebAssembly is designed to be implemented both <a href="../web/">by web browsers</a>
-and <a href="../non-web/">completely different execution environments</a>.</li>
+  <li>
+    <p>在WebAssembly中，可分发、可加载和可执行的代码单元被称为模块<a href="../modules/">module</a>。</p>
+  </li>
+  <li>
+    <p>在模块中WebAssembly代码的行为是根据结构化堆栈机器的<a href="../semantics/">指令</a>而指定的。</p>
+  </li>
+  <li>
+    <p>WebAssembly的二进制格式在模块的结构和代码中被规定为<a href="../binary-encoding/">二进制编码</a>,这个二进制格式被设计为由WebAssembly的实现来进行本地的解码。</p>
+  </li>
+  <li>
+    <p>WebAssembly的文本格式被定义为类似模块的结构和代码的<a href="../text-format/">文本投影</a>，此格式可以使用工具（例如汇编器，调试器或者性能分析器）进行读写。</p>
+  </li>
+  <li>
+    <p>WebAssembly是设计为可以在<a href="../web/">WEB环境</a>运行以及可以在完全不同的其他环境中进行<a href="../non-web/">非浏览器嵌入</a>的实现.</p>
+  </li>
 </ul>
-
 
       </div>
       <div class="col-xs-12 col-lg-3">
@@ -91,8 +87,6 @@ and <a href="../non-web/">completely different execution environments</a>.</li>
         <a class="side-nav-item" href="/docs/faq/">FAQ</a>
         
         <a class="side-nav-item" href="/docs/rationale/">Design Rationale</a>
-        
-        <a class="side-nav-item" href="/docs/mvp/">Minimum Viable Product</a>
         
         <a class="side-nav-item" href="/docs/future-features/">Features to add after the MVP</a>
         
@@ -115,6 +109,8 @@ and <a href="../non-web/">completely different execution environments</a>.</li>
         <a class="side-nav-item" href="/docs/dynamic-linking/">Dynamic linking</a>
         
         <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly 的长久目标</a>
+        
+        <a class="side-nav-item" href="/docs/mvp/">最小可行性版本</a>
         
         <a class="side-nav-item" href="/docs/non-web/">非网络嵌入</a>
         
