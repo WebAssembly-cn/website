@@ -90,7 +90,7 @@ $ ./emsdk activate sdk-incoming-64bit binaryen-master-64bit
   <li>最后，当我们运行程序的时候，我们不能直接在浏览器中打开 HTML 文件，因为跨域请求是不支持 <code class="highlighter-rouge">file</code> 协议的。我们需要将我们的输出文件运行在HTTP协议上。</li>
 </ul>
 
-<p>下面这些命令可能让你创建一个简单的“hello word”程序，并且编译它。</p>
+<p>下面这些命令可能让你创建一个简单的“hello world”程序，并且编译它。</p>
 
 <pre>
 $ mkdir hello
@@ -108,7 +108,7 @@ $ <b>emcc hello.c -s WASM=1 -o hello.html</b>
 </code></pre>
 </div>
 
-<p>HTTP 服务开启后，您可以<a href="http://localhost:8080/hello.html" target="_blank">在浏览器中打开</a>。如果你看到了“Hello，word！”输出到了 Emscripten 的 控制面板，恭喜你！你的 WebAssembly 程序编译成功了！</p>
+<p>HTTP 服务开启后，您可以<a href="http://localhost:8080/hello.html" target="_blank">在浏览器中打开</a>。如果你看到了“Hello，world！”输出到了 Emscripten 的 控制面板，恭喜你！你的 WebAssembly 程序编译成功了！</p>
 
 
       </div>
