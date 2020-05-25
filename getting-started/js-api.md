@@ -18,7 +18,7 @@ _我们假定现在您已经有了一个 .wasm 模块了，不管是[是通过 C
 
 第一步，我们有很多方式获取二进制文件的类型数组或 `ArrayBuffer`：通过网络，使用 XHR 或者 fetch，从 `文件`获取，从 IndexedDB获取，或者直接在 JavaScript 合成。
 
-接下来的步骤是编译这个二进制文件，通过一个异步方法 `WebAssembly.conpile`，将会返回一个 Promise，resolve 一个 `WebAssembly.module`。`Module`对象是无状态的，它支持[克隆实例](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)，也就是说，编译的代码可以被存储在 IndexedDB 或者在多个窗口和worker之间通过 `postMessage` 传输。
+接下来的步骤是编译这个二进制文件，通过一个异步方法 `WebAssembly.compile`，将会返回一个 Promise，resolve 一个 `WebAssembly.module`。`Module`对象是无状态的，它支持[克隆实例](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)，也就是说，编译的代码可以被存储在 IndexedDB 或者在多个窗口和worker之间通过 `postMessage` 传输。
 
 最后一步是 *实例化* 这个 `Module`，通过实例化一个新的 `WebAssembly.Instance`，传输 imports 和 `Module` 当做参数。`Instance` 对象像[函数闭包](https://en.wikipedia.org/wiki/Closure_(computer_programming))一样，代码与环境结合，不能克隆。
 

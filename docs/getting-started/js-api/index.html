@@ -60,7 +60,7 @@
 
 <p>第一步，我们有很多方式获取二进制文件的类型数组或 <code class="highlighter-rouge">ArrayBuffer</code>：通过网络，使用 XHR 或者 fetch，从 <code class="highlighter-rouge">文件</code>获取，从 IndexedDB获取，或者直接在 JavaScript 合成。</p>
 
-<p>接下来的步骤是编译这个二进制文件，通过一个异步方法 <code class="highlighter-rouge">WebAssembly.conpile</code>，将会返回一个 Promise，resolve 一个 <code class="highlighter-rouge">WebAssembly.module</code>。<code class="highlighter-rouge">Module</code>对象是无状态的，它支持<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">克隆实例</a>，也就是说，编译的代码可以被存储在 IndexedDB 或者在多个窗口和worker之间通过 <code class="highlighter-rouge">postMessage</code> 传输。</p>
+<p>接下来的步骤是编译这个二进制文件，通过一个异步方法 <code class="highlighter-rouge">WebAssembly.compile</code>，将会返回一个 Promise，resolve 一个 <code class="highlighter-rouge">WebAssembly.module</code>。<code class="highlighter-rouge">Module</code>对象是无状态的，它支持<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm">克隆实例</a>，也就是说，编译的代码可以被存储在 IndexedDB 或者在多个窗口和worker之间通过 <code class="highlighter-rouge">postMessage</code> 传输。</p>
 
 <p>最后一步是 <em>实例化</em> 这个 <code class="highlighter-rouge">Module</code>，通过实例化一个新的 <code class="highlighter-rouge">WebAssembly.Instance</code>，传输 imports 和 <code class="highlighter-rouge">Module</code> 当做参数。<code class="highlighter-rouge">Instance</code> 对象像<a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">函数闭包</a>一样，代码与环境结合，不能克隆。</p>
 
