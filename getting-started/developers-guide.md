@@ -42,7 +42,7 @@ layout: getting-started
 - 如果我们想让 Emscripten 生成一个我们所写程序的HTML页面，并带有 wasm 和 JavaScript 文件，我们需要给输出的文件名加 `.html` 后缀名。
 - 最后，当我们运行程序的时候，我们不能直接在浏览器中打开 HTML 文件，因为跨域请求是不支持 `file` 协议的。我们需要将我们的输出文件运行在HTTP协议上。
 
-下面这些命令可能让你创建一个简单的“hello word”程序，并且编译它。
+下面这些命令可能让你创建一个简单的“hello world”程序，并且编译它。
 
 <pre>
 $ mkdir hello
@@ -58,6 +58,6 @@ $ <b>emcc hello.c -s WASM=1 -o hello.html</b>
 
     $ emrun --no_browser --port 8080 .
 
-HTTP 服务开启后，您可以<a href="http://localhost:8080/hello.html" target="_blank">在浏览器中打开</a>。如果你看到了“Hello，word！”输出到了 Emscripten 的 控制面板，恭喜你！你的 WebAssembly 程序编译成功了！
+HTTP 服务开启后，您可以<a href="http://localhost:8080/hello.html" target="_blank">在浏览器中打开</a>。如果你看到了“Hello，world！”输出到了 Emscripten 的 控制面板，恭喜你！你的 WebAssembly 程序编译成功了！
 
 
