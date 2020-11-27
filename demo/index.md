@@ -14,7 +14,7 @@ permalink: demo/
   <span class="btn-comment btn-comment-error hide-asm-support">你的浏览器不支持 WebAssembly. <a href="/roadmap/">查看更多</a></span>
 </div>
 
-这是 [坦克!, Unity 教程中的一个游戏](https://unity3d.com/learn/tutorials/projects/tanks-tutorial) 导出成 WebAssembly 的游戏. 操作坦克来击杀在这个地图中的其他坦克. 蓝色坦克通过W、S、A、D操作移动，空格键发射炮弹。红色弹可通过上、下、左、右移动，回车发射炮弹。
+这是 [坦克!, Unity 教程中的一个游戏](https://unity3d.com/learn/tutorials/projects/tanks-tutorial) 导出成 WebAssembly 的游戏. 操作坦克来击杀在这个地图中的其他坦克. 蓝色坦克通过W、S、A、D操作移动，空格键发射炮弹。红色坦克通过上、下、左、右移动，回车发射炮弹。
 
 <script type="text/javascript" >
 (function() {
