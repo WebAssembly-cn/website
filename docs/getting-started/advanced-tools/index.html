@@ -59,17 +59,17 @@
 
 <p>注意，S-expression 格式是 WABT 来支持的，并不是 WebAssembly 本身。它是可以用来表示 WebAssembly 的很多文本格式的语言之一，所以，他被开发成一个便于 WABT 工具编解码的格式。开发者能够非常简单的为其他的文本格式构建解码器/编码器，可以轻松的表达 WebAssembly 的堆栈机器语义。</p>
 
-<h3 id="wasm2wast-工具">wasm2wast 工具</h3>
+<h3 id="wasm2wat-工具">wasm2wat 工具</h3>
 
 <p>这个工具将 WebAssembly 二进制转换为 S-expressions。他是命令行工具，一个二进制文件作为输入，输出一个包含可以读文本的文件</p>
 
 <p>开发者可以编辑文本文件，然后再将其转换为二进制文件，比如优化算法、追踪问题、插入调试语句等等。</p>
 
-<h3 id="wast2wasm-工具">wast2wasm 工具</h3>
+<h3 id="wat2wasm-工具">wat2wasm 工具</h3>
 
-<p>这个命令行工具和 <strong>wasm2wast</strong> 是反的。也就是说，它将一个 S-expression WAST 文件转换为二进制的 WebAssembly 文件。</p>
+<p>这个命令行工具和 <strong>wasm2wat</strong> 是反的。也就是说，它将一个 S-expression WAT 文件转换为二进制的 WebAssembly 文件。</p>
 
-<p>使用 <strong>wasm2wast</strong> 和 <strong>wast2wasm</strong> 可以掌控 WebAssembly 的二进制代码，开发者可以通过工具来操作修改 WebAssembly 的二进制代码。</p>
+<p>使用 <strong>wasm2wat</strong> 和 <strong>wat2wasm</strong> 可以掌控 WebAssembly 的二进制代码，开发者可以通过工具来操作修改 WebAssembly 的二进制代码。</p>
 
 <h3 id="wasm-interp-工具">wasm-interp 工具</h3>
 
